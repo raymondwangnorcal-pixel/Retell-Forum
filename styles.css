@@ -328,7 +328,6 @@ main {
 }
 
 .composer-shell button:hover { color: var(--navy); background: var(--signal-pale); }
-.composer-note { margin: 11px 0 0; color: #91a0c6; font-size: 13px; }
 
 .search-suggestions {
   position: absolute;
@@ -339,7 +338,6 @@ main {
   max-height: 360px;
   overflow-y: auto;
   border: 1px solid #52648f;
-  border-top: 4px solid var(--signal);
   background: #080d19;
 }
 
