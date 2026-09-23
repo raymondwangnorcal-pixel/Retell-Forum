@@ -131,3 +131,11 @@
 - Supersedes: none
 - Evidence: User-approved type-ahead behavior implemented in `index.html`, `styles.css`, and `app.js`.
 - Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0006
+
+- Type: implementation
+- Implementation commit: `17e97e00149cf14c74468eec3b8797f27b26f3f4` — feat(search): add linked typeahead suggestions
+- Superseded by: none
+- Note: The homepage composer now presents verified, ranked Retell destinations with accessible keyboard controls and a full-forum search fallback.
+- Privacy waivers: none
