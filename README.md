@@ -1,6 +1,6 @@
-# Retell Forum responsive prototype
+# Retell Forum redesign
 
-Standalone front-end prototype for a support-first redesign of the Retell AI community forum.
+Standalone front end for a support-first redesign of the Retell AI community forum.
 
 ## Run locally
 
@@ -18,10 +18,14 @@ Open `http://127.0.0.1:4173`.
 - Simplified five-destination navigation
 - Responsive mobile navigation drawer
 - Support filters and issue states
-- Feature-request voting and roadmap status
+- Verified links to Retell feature requests and roadmap topics
 - New-member checklist
-- Community posting dialog with identifier detection and redaction
-- Clear guest authentication copy
+- Direct handoff to the official forum for sign-in, posting, and voting
 - Status-first incident flow
+- Official Retell documentation links for every guide
 
-The prototype uses public forum topics as representative content. Authentication, publishing, and private support are intentionally nonfunctional.
+The site uses public Retell forum topics and documentation. Actions that require a Retell account continue on the official community forum so the static site never simulates publishing, voting, or authentication.
+
+## Deploy to Vercel
+
+Import the repository in Vercel and keep the project root as the deployment root. The site is static and does not require a build command or output-directory override.
