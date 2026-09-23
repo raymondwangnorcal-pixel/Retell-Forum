@@ -87,3 +87,33 @@
 - Superseded by: none
 - Note: The committed redesign replaces gradient-heavy generic styling with the approved flat editorial system across desktop and mobile views.
 - Privacy waivers: none
+
+## DEC-0005 — Hand authenticated actions to the official Retell forum
+
+- Date: 2026-09-23
+- Owner: shared
+- Status at record: active
+- Decision: Keep discovery and filtering inside the static redesign, but send sign-in, posting, voting, documentation, roadmap, and status actions to verified official Retell destinations.
+- Rationale: A Vercel-hosted static front end must not imply that account-bound actions succeeded locally, and authoritative Retell pages keep those workflows accurate and secure.
+- Scope: Account access, support and feature-request submission, feature voting, guide links, topic links, roadmap links, service status, and Vercel deployment behavior.
+- Implementation: pending
+- Recorded against HEAD: `35e2a272c9494f172f67591770b8237743e8db5d`
+- Supersedes: DEC-0003
+- Evidence: User requested real redirects for the Vercel deployment; implemented in `index.html`, `app.js`, `styles.css`, and `README.md`.
+- Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0003
+
+- Type: supersession
+- Implementation commit: not applicable
+- Superseded by: DEC-0005
+- Note: The local public-post composer and identifier-redaction flow were replaced by direct handoff to the official Retell forum.
+- Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0005
+
+- Type: implementation
+- Implementation commit: `617707e3af590cd1ca1fc701d719a8ee0e88be46` — feat(links): connect actions to official Retell resources
+- Superseded by: none
+- Note: The static redesign now uses verified Retell forum, documentation, roadmap, account, and status destinations instead of simulated account-bound actions.
+- Privacy waivers: none

@@ -7,14 +7,6 @@ const assistQuery = document.querySelector("#assist-query");
 const assistResponse = document.querySelector("#assist-response");
 const responseTitle = document.querySelector("#response-title");
 const responseCopy = document.querySelector("#response-copy");
-const composeDialog = document.querySelector("#compose-dialog");
-const composeForm = document.querySelector("#compose-form");
-const composeTitle = document.querySelector("#compose-title");
-const composeContext = document.querySelector("#compose-context");
-const postTitle = document.querySelector("#post-title");
-const postBody = document.querySelector("#post-body");
-const privacyWarning = document.querySelector("#privacy-warning");
-const authDialog = document.querySelector("#auth-dialog");
 const toast = document.querySelector("#prototype-toast");
 let toastTimer;
 
@@ -111,16 +103,6 @@ document.querySelectorAll("[data-support-filter]").forEach((button) => {
   });
 });
 
-document.querySelectorAll(".vote-button").forEach((button) => {
-  button.addEventListener("click", () => {
-    const count = button.querySelector("strong");
-    const voted = button.classList.toggle("is-voted");
-    button.setAttribute("aria-pressed", String(voted));
-    count.textContent = String(Number(count.textContent) + (voted ? 1 : -1));
-    showToast(voted ? "Vote added. Follow this idea for roadmap updates." : "Vote removed.");
-  });
-});
-
 const checklist = document.querySelector("#onboarding-checklist");
 const progressCount = document.querySelector("#progress-count");
 checklist?.addEventListener("change", () => {
@@ -135,63 +117,6 @@ document.querySelector("[data-dismiss-onboarding]")?.addEventListener("click", (
   const panel = event.currentTarget.closest(".onboarding-panel");
   panel.hidden = true;
   showToast("Getting started is still available under Learn.");
-});
-
-function openComposer(mode = "question") {
-  composeForm.reset();
-  privacyWarning.hidden = true;
-  if (mode === "idea") {
-    composeContext.textContent = "Shape the Retell roadmap";
-    composeTitle.textContent = "Submit an idea";
-    postTitle.placeholder = "Name the improvement…";
-  } else {
-    composeContext.textContent = "Get help from the community";
-    composeTitle.textContent = "Ask a question";
-    postTitle.placeholder = "Summarize the problem…";
-    if (assistQuery.value.trim()) postTitle.value = assistQuery.value.trim();
-  }
-  composeDialog.showModal();
-  requestAnimationFrame(() => postTitle.focus());
-}
-
-document.querySelectorAll("[data-open-compose]").forEach((button) => {
-  button.addEventListener("click", () => openComposer(button.dataset.composeMode ?? "question"));
-});
-
-const sensitivePattern = /(org|agent|call)_[a-z0-9]{6,}|\+?\d[\d\s()-]{8,}\d/gi;
-function inspectSensitiveText() {
-  privacyWarning.hidden = !sensitivePattern.test(`${postTitle.value} ${postBody.value}`);
-  sensitivePattern.lastIndex = 0;
-}
-postTitle?.addEventListener("input", inspectSensitiveText);
-postBody?.addEventListener("input", inspectSensitiveText);
-
-document.querySelector("[data-redact]")?.addEventListener("click", () => {
-  postTitle.value = postTitle.value.replace(sensitivePattern, "[private identifier]");
-  postBody.value = postBody.value.replace(sensitivePattern, "[private identifier]");
-  privacyWarning.hidden = true;
-  showToast("Private identifiers redacted from this draft.");
-});
-
-document.querySelector("[data-private-support]")?.addEventListener("click", () => {
-  composeDialog.close();
-  showToast("Private support would open here in the production forum.");
-});
-
-composeForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!composeForm.reportValidity()) return;
-  composeDialog.close();
-  showToast("Post preview ready. Nothing was published from this prototype.");
-});
-
-document.querySelectorAll("[data-open-auth]").forEach((button) => button.addEventListener("click", () => authDialog.showModal()));
-document.querySelectorAll("[data-close-dialog]").forEach((button) => button.addEventListener("click", () => button.closest("dialog").close()));
-
-authDialog?.querySelector("form")?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  authDialog.close();
-  showToast("Authentication is intentionally disabled in this prototype.");
 });
 
 function showToast(message) {
