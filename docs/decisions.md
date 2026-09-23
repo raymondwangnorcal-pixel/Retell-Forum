@@ -153,3 +153,11 @@
 - Supersedes: none
 - Evidence: User-approved motion direction implemented in `app.js` and `styles.css`; the cursor spotlight is a scoped interaction exception to the decorative-glow restriction in DEC-0004.
 - Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0007
+
+- Type: implementation
+- Implementation commit: `abb6c55b069bfbd9e0a5b55ca5119a6c23edcba5` — feat(motion): add weighted scrolling and cursor glow
+- Superseded by: none
+- Note: Desktop wheel input now follows a controlled inertia curve and a low-opacity periwinkle spotlight tracks fine-pointer movement without intercepting interaction.
+- Privacy waivers: none
