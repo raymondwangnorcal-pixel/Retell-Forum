@@ -82,12 +82,16 @@
 
               <form class="assist-form" id="assist-form" role="search">
                 <label for="assist-query">Ask or search the Retell community</label>
-                <div class="composer-shell">
-                  <span class="composer-glyph" aria-hidden="true">⌕</span>
-                  <textarea id="assist-query" name="query" rows="2" placeholder="Describe what you’re trying to build or fix…" autocomplete="off"></textarea>
-                  <button type="submit">Find an answer</button>
+                <div class="composer-wrap">
+                  <div class="composer-shell">
+                    <span class="composer-glyph" aria-hidden="true">⌕</span>
+                    <textarea id="assist-query" name="query" rows="2" placeholder="Describe what you’re trying to build or fix…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="assist-suggestions" aria-expanded="false" aria-describedby="assist-search-help assist-suggestion-status"></textarea>
+                    <button type="submit">Find an answer</button>
+                  </div>
+                  <div class="search-suggestions" id="assist-suggestions" role="listbox" aria-label="Suggested Retell resources" hidden></div>
                 </div>
-                <p class="composer-note">Try “My webhook isn’t firing after a call” or “How do I transfer a live call?”</p>
+                <p class="composer-note" id="assist-search-help">Type at least two characters to see matching forum topics and guides.</p>
+                <p class="sr-only" id="assist-suggestion-status" aria-live="polite"></p>
               </form>
 
               <div class="assist-response" id="assist-response" aria-live="polite" hidden>
