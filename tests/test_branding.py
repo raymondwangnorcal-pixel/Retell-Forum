@@ -36,6 +36,29 @@ class BrandingParser(HTMLParser):
             self._current_brand["text"].append(data.strip())
 
 
+class StatusParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self._inside_status = False
+        self.label = None
+        self.text = []
+
+    def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
+        classes = set(attributes.get("class", "").split())
+        if tag == "a" and "system-status" in classes:
+            self._inside_status = True
+            self.label = attributes.get("aria-label")
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self._inside_status:
+            self._inside_status = False
+
+    def handle_data(self, data):
+        if self._inside_status and data.strip():
+            self.text.append(data.strip())
+
+
 class BrandingTests(unittest.TestCase):
     def test_desktop_and_mobile_use_retell_wordmark_with_forum_suffix(self):
         parser = BrandingParser()
@@ -52,6 +75,13 @@ class BrandingTests(unittest.TestCase):
         wordmark = ROOT / "retell-wordmark.svg"
         self.assertTrue(wordmark.is_file())
         self.assertIn('viewBox="32 32 595 163"', wordmark.read_text())
+
+    def test_header_exposes_hardcoded_operational_status(self):
+        parser = StatusParser()
+        parser.feed((ROOT / "index.html").read_text())
+
+        self.assertEqual("Retell system status: Operational", parser.label)
+        self.assertEqual(["Operational"], parser.text)
 
 
 if __name__ == "__main__":

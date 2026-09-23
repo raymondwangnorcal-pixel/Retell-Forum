@@ -224,7 +224,7 @@ h1, h2, h3 { text-wrap: balance; scroll-margin-top: 88px; }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--signal);
+  background: var(--success);
 }
 
 .join-button {
