@@ -65,3 +65,17 @@
 - Superseded by: none
 - Note: The committed prototype implements identifier detection, one-click redaction, and private-support routing.
 - Privacy waivers: none
+
+## DEC-0004 — Use a flat editorial visual system
+
+- Date: 2026-09-23
+- Owner: user
+- Status at record: active
+- Decision: Preserve Retell's black, white, navy, and periwinkle palette while removing decorative gradients, glows, glass effects, uniform rounded cards, stock-style boxed icons, generic marketing copy, and single-family typography.
+- Rationale: The previous treatment used common generated-site conventions that made the forum feel templated rather than specific to a technical voice-agent community.
+- Scope: Homepage, navigation, topic lists, category headers, dialogs, typography, spacing, interaction states, and visible copy.
+- Implementation: pending
+- Recorded against HEAD: `691082fc32613f26726f9fb4a5849f3f9dada2a1`
+- Supersedes: none
+- Evidence: User-approved visual constraints implemented in `index.html`, `styles.css`, and `app.js`.
+- Privacy waivers: none
