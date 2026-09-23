@@ -109,3 +109,11 @@
 - Superseded by: DEC-0005
 - Note: The local public-post composer and identifier-redaction flow were replaced by direct handoff to the official Retell forum.
 - Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0005
+
+- Type: implementation
+- Implementation commit: `617707e3af590cd1ca1fc701d719a8ee0e88be46` — feat(links): connect actions to official Retell resources
+- Superseded by: none
+- Note: The static redesign now uses verified Retell forum, documentation, roadmap, account, and status destinations instead of simulated account-bound actions.
+- Privacy waivers: none
