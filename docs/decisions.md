@@ -197,3 +197,11 @@
 - Supersedes: none
 - Evidence: User-approved hardcoding implemented in `index.html` and `styles.css`, with a regression test in `tests/test_branding.py`.
 - Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0009
+
+- Type: implementation
+- Implementation commit: `52fe4aa2e7b71384f3ba074e26ceb065aa92840a` — fix(status): show hardcoded operational state
+- Superseded by: none
+- Note: The header now presents a hardcoded Operational label, a success-green indicator, and an accessible status description while retaining the compact mobile treatment.
+- Privacy waivers: none
