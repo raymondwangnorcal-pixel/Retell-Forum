@@ -139,3 +139,25 @@
 - Superseded by: none
 - Note: The homepage composer now presents verified, ranked Retell destinations with accessible keyboard controls and a full-forum search fallback.
 - Privacy waivers: none
+
+## DEC-0007 — Add restrained pointer-responsive motion
+
+- Date: 2026-09-23
+- Owner: user
+- Status at record: active
+- Decision: Give fine-pointer desktop wheel input slower weighted inertia and add a subtle periwinkle cursor spotlight, while preserving native touch, keyboard, nested-scroll, zoom-gesture, and reduced-motion behavior.
+- Rationale: The requested physical weight and localized pointer feedback make the forum feel more deliberate without sacrificing accessibility or turning the glow into persistent decoration.
+- Scope: Page scrolling, pointer feedback, desktop interaction, nested scroll containers, and reduced-motion behavior.
+- Implementation: pending
+- Recorded against HEAD: `70affbbd7502d3a8d9312146411de90f30be6cee`
+- Supersedes: none
+- Evidence: User-approved motion direction implemented in `app.js` and `styles.css`; the cursor spotlight is a scoped interaction exception to the decorative-glow restriction in DEC-0004.
+- Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0007
+
+- Type: implementation
+- Implementation commit: `abb6c55b069bfbd9e0a5b55ca5119a6c23edcba5` — feat(motion): add weighted scrolling and cursor glow
+- Superseded by: none
+- Note: Desktop wheel input now follows a controlled inertia curve and a low-opacity periwinkle spotlight tracks fine-pointer movement without intercepting interaction.
+- Privacy waivers: none

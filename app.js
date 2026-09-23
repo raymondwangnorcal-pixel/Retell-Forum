@@ -365,6 +365,84 @@ function showToast(message) {
   toastTimer = setTimeout(() => { toast.hidden = true; }, 3600);
 }
 
+const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let cursorFrame;
+let cursorPosition = { x: 0, y: 0 };
+let scrollFrame;
+let scrollTarget = window.scrollY;
+
+function updateCursorGlow() {
+  cursorFrame = undefined;
+  document.body.style.setProperty("--cursor-x", `${cursorPosition.x}px`);
+  document.body.style.setProperty("--cursor-y", `${cursorPosition.y}px`);
+  document.body.classList.add("cursor-glow-visible");
+}
+
+document.addEventListener("pointermove", (event) => {
+  if (!finePointer.matches || reducedMotion.matches || event.pointerType === "touch") return;
+  cursorPosition = { x: event.clientX, y: event.clientY };
+  if (!cursorFrame) cursorFrame = requestAnimationFrame(updateCursorGlow);
+}, { passive: true });
+
+document.addEventListener("pointerleave", () => {
+  document.body.classList.remove("cursor-glow-visible");
+});
+
+window.addEventListener("blur", () => {
+  document.body.classList.remove("cursor-glow-visible");
+});
+
+function canScrollElement(element, delta) {
+  if (!(element instanceof Element)) return false;
+  const { overflowY } = getComputedStyle(element);
+  if (!/(auto|scroll)/.test(overflowY) || element.scrollHeight <= element.clientHeight) return false;
+  return delta < 0 ? element.scrollTop > 0 : element.scrollTop + element.clientHeight < element.scrollHeight;
+}
+
+function hasScrollableParent(target, delta) {
+  let element = target instanceof Element ? target : target.parentElement;
+  while (element && element !== document.body) {
+    if (canScrollElement(element, delta)) return true;
+    element = element.parentElement;
+  }
+  return false;
+}
+
+function animateWeightedScroll() {
+  const distance = scrollTarget - window.scrollY;
+  if (Math.abs(distance) < 0.5) {
+    window.scrollTo({ top: scrollTarget, behavior: "instant" });
+    scrollFrame = undefined;
+    return;
+  }
+
+  window.scrollTo({ top: window.scrollY + distance * 0.12, behavior: "instant" });
+  scrollFrame = requestAnimationFrame(animateWeightedScroll);
+}
+
+window.addEventListener("wheel", (event) => {
+  if (
+    !finePointer.matches
+    || reducedMotion.matches
+    || event.ctrlKey
+    || event.metaKey
+    || Math.abs(event.deltaX) > Math.abs(event.deltaY)
+    || hasScrollableParent(event.target, event.deltaY)
+  ) return;
+
+  event.preventDefault();
+  const deltaMultiplier = event.deltaMode === 1 ? 18 : event.deltaMode === 2 ? window.innerHeight : 1;
+  const weightedDelta = Math.max(-180, Math.min(180, event.deltaY * deltaMultiplier)) * 0.72;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  scrollTarget = Math.max(0, Math.min(maxScroll, scrollTarget + weightedDelta));
+  if (!scrollFrame) scrollFrame = requestAnimationFrame(animateWeightedScroll);
+}, { passive: false });
+
+window.addEventListener("scroll", () => {
+  if (!scrollFrame) scrollTarget = window.scrollY;
+}, { passive: true });
+
 const initialView = location.hash.replace("#", "");
 if (initialView && document.querySelector(`[data-view="${initialView}"]`)) {
   setView(initialView, { focus: false });
