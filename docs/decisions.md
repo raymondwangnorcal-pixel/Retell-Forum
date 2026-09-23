@@ -117,3 +117,25 @@
 - Superseded by: none
 - Note: The static redesign now uses verified Retell forum, documentation, roadmap, account, and status destinations instead of simulated account-bound actions.
 - Privacy waivers: none
+
+## DEC-0006 — Suggest verified resources while users type
+
+- Date: 2026-09-23
+- Owner: shared
+- Status at record: active
+- Decision: Show up to four ranked, verified Retell resources after two typed characters, add a full-forum search fallback, and support arrow-key selection, Enter, Escape, and pointer navigation.
+- Rationale: First-time users should see useful destinations before submitting a broad query, without turning the static Vercel prototype into a misleading live search service.
+- Scope: Homepage help composer, suggestion ranking, keyboard accessibility, result destinations, and forum-search fallback.
+- Implementation: pending
+- Recorded against HEAD: `73710917ec00a6177f106f585f38fe0f41c0deeb`
+- Supersedes: none
+- Evidence: User-approved type-ahead behavior implemented in `index.html`, `styles.css`, and `app.js`.
+- Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0006
+
+- Type: implementation
+- Implementation commit: `17e97e00149cf14c74468eec3b8797f27b26f3f4` — feat(search): add linked typeahead suggestions
+- Superseded by: none
+- Note: The homepage composer now presents verified, ranked Retell destinations with accessible keyboard controls and a full-forum search fallback.
+- Privacy waivers: none

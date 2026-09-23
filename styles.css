@@ -300,6 +300,7 @@ main {
 
 .assist-form { max-width: 940px; margin-top: 28px; }
 .assist-form > label { display: block; margin-bottom: 9px; color: #d9e1f5; font-size: 14px; font-weight: 650; }
+.composer-wrap { position: relative; }
 
 .composer-shell {
   display: grid;
@@ -342,6 +343,48 @@ main {
 
 .composer-shell button:hover { color: var(--navy); background: var(--signal-pale); }
 .composer-note { margin: 11px 0 0; color: #91a0c6; font-size: 13px; }
+
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 7px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  max-height: 360px;
+  overflow-y: auto;
+  border: 1px solid #52648f;
+  border-top: 4px solid var(--signal);
+  background: #080d19;
+}
+
+.search-suggestions[hidden] { display: none; }
+
+.suggestion-link {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 5px 14px;
+  padding: 14px 17px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.suggestion-link:last-child { border-bottom: 0; }
+.suggestion-link:hover,
+.suggestion-link.is-active { padding-left: 13px; border-left: 4px solid var(--signal); background: #101a31; }
+.suggestion-type { grid-row: 1 / 3; color: #91a0c6; font-size: 12px; line-height: 1.45; }
+.suggestion-title { font-size: 15px; font-weight: 650; line-height: 1.35; }
+.suggestion-description { color: var(--muted); font-size: 13px; line-height: 1.4; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 .assist-response {
   max-width: 940px;
@@ -865,6 +908,9 @@ main {
   .hero-copy h1 { font-size: clamp(43px, 11vw, 62px); }
   .composer-shell { grid-template-columns: 24px minmax(0, 1fr); padding: 10px; }
   .composer-shell button { grid-column: 1 / -1; width: 100%; }
+  .search-suggestions { max-height: 310px; }
+  .suggestion-link { grid-template-columns: 1fr; gap: 4px; }
+  .suggestion-type { grid-row: auto; }
   .response-heading { grid-template-columns: 1fr; }
   .confidence { width: fit-content; padding: 6px 0 0; border-top: 1px solid #6076aa; border-left: 0; }
   .answer-sources .ask-community { margin-left: 0; }
