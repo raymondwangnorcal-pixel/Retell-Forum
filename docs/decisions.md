@@ -175,3 +175,11 @@
 - Supersedes: none
 - Evidence: User-approved branding direction implemented in `index.html`, `styles.css`, and `retell-wordmark.svg`.
 - Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0008
+
+- Type: implementation
+- Implementation commit: `a1c123a5fca46dc01c93f35fc04917def4c5e12a` — feat(brand): use official Retell wordmark
+- Superseded by: none
+- Note: Desktop and mobile navigation now combine the supplied Retell wordmark with a responsive Forum suffix and an accessible Retell Forum home label.
+- Privacy waivers: none
