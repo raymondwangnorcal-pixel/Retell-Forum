@@ -161,3 +161,17 @@
 - Superseded by: none
 - Note: Desktop wheel input now follows a controlled inertia curve and a low-opacity periwinkle spotlight tracks fine-pointer movement without intercepting interaction.
 - Privacy waivers: none
+
+## DEC-0008 — Use the official Retell wordmark in forum navigation
+
+- Date: 2026-09-23
+- Owner: user
+- Status at record: active
+- Decision: Replace the constructed navigation mark with the supplied Retell logo-and-name wordmark and append a separate Forum label in both desktop and mobile headers.
+- Rationale: The navigation should use recognizable Retell branding while keeping the product name Retell Forum explicit.
+- Scope: Desktop sidebar branding, mobile top-bar branding, accessible home labels, and the bundled SVG asset.
+- Implementation: pending
+- Recorded against HEAD: `69e407e39ff2217e89d1b9d3d5e1a2dc5cf06d55`
+- Supersedes: none
+- Evidence: User-approved branding direction implemented in `index.html`, `styles.css`, and `retell-wordmark.svg`.
+- Privacy waivers: none

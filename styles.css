@@ -93,6 +93,8 @@ h1, h2, h3 { text-wrap: balance; scroll-margin-top: 88px; }
 
 .brand,
 .mobile-brand {
+  align-items: center;
+  gap: 8px;
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -103,38 +105,13 @@ h1, h2, h3 { text-wrap: balance; scroll-margin-top: 88px; }
 .brand {
   min-height: 42px;
   display: flex;
-  align-items: center;
-  gap: 11px;
   padding: 0 24px;
   font-size: 17px;
 }
 
 .mobile-brand { white-space: nowrap; }
-
-.brand-mark {
-  position: relative;
-  width: 22px;
-  height: 22px;
-  display: inline-block;
-}
-
-.brand-mark i {
-  position: absolute;
-  top: 9px;
-  left: 9px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #fff;
-  transform: rotate(var(--angle)) translateY(-8px);
-}
-
-.brand-mark i:nth-child(1) { --angle: 0deg; }
-.brand-mark i:nth-child(2) { --angle: 60deg; }
-.brand-mark i:nth-child(3) { --angle: 120deg; }
-.brand-mark i:nth-child(4) { --angle: 180deg; }
-.brand-mark i:nth-child(5) { --angle: 240deg; }
-.brand-mark i:nth-child(6) { --angle: 300deg; }
+.retell-wordmark { width: 108px; height: auto; display: block; }
+.brand-forum { color: var(--text); }
 
 .primary-nav {
   display: grid;
@@ -918,7 +895,8 @@ main {
   }
 
   .menu-button span { width: 19px; height: 2px; background: #d9dce4; }
-  .mobile-brand { display: block; font-size: 15px; }
+  .mobile-brand { display: flex; gap: 4px; font-size: 11px; }
+  .mobile-brand .retell-wordmark { width: 45px; }
   .topbar { padding: 0 max(14px, env(safe-area-inset-right)) 0 max(14px, env(safe-area-inset-left)); }
   .system-status span:last-child { display: none; }
   .system-status { width: 38px; justify-content: center; padding: 0; }
@@ -982,7 +960,7 @@ main {
   .join-full { display: none; }
   .join-short { display: inline; }
   .join-button { min-width: 58px; }
-  .mobile-brand { font-size: 14px; }
+  .mobile-brand { font-size: 11px; }
   .voice-hero { padding-inline: 21px; }
 }
 
