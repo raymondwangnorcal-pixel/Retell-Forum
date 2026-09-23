@@ -183,3 +183,25 @@
 - Superseded by: none
 - Note: Desktop and mobile navigation now combine the supplied Retell wordmark with a responsive Forum suffix and an accessible Retell Forum home label.
 - Privacy waivers: none
+
+## DEC-0009 — Hardcode the header status as Operational
+
+- Date: 2026-09-23
+- Owner: user
+- Status at record: active
+- Decision: Hardcode the forum header status as Operational with a success-green indicator and an accessible status label, while keeping the indicator compact on narrow mobile screens.
+- Rationale: The user explicitly chose a fixed presentation for this static prototype instead of a live status integration.
+- Scope: Header status label, indicator color, accessibility label, and static Vercel behavior.
+- Implementation: pending
+- Recorded against HEAD: `1af41e1eb019f3a386f1ba3e1f10421be5582e30`
+- Supersedes: none
+- Evidence: User-approved hardcoding implemented in `index.html` and `styles.css`, with a regression test in `tests/test_branding.py`.
+- Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0009
+
+- Type: implementation
+- Implementation commit: `52fe4aa2e7b71384f3ba074e26ceb065aa92840a` — fix(status): show hardcoded operational state
+- Superseded by: none
+- Note: The header now presents a hardcoded Operational label, a success-green indicator, and an accessible status description while retaining the compact mobile treatment.
+- Privacy waivers: none
