@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c0c0c" />
+    <meta
+      name="description"
+      content="A responsive product prototype for a redesigned Retell AI community forum."
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>Retell Forum — Community prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="app-shell">
+      <aside class="sidebar" id="site-navigation" aria-label="Primary navigation">
+        <button class="brand" type="button" data-view-target="home" aria-label="Retell Forum home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span>Retell Forum</span>
+        </button>
+
+        <nav class="primary-nav" aria-label="Forum sections">
+          <button class="nav-item" type="button" data-view-target="support">
+            <span class="nav-icon" aria-hidden="true">?</span>
+            <span><strong>Get Help</strong><small>Answers and support</small></span>
+          </button>
+          <button class="nav-item" type="button" data-view-target="learn">
+            <span class="nav-icon" aria-hidden="true">↗</span>
+            <span><strong>Learn</strong><small>Guides and examples</small></span>
+          </button>
+          <button class="nav-item" type="button" data-view-target="ideas">
+            <span class="nav-icon" aria-hidden="true">◇</span>
+            <span><strong>Ideas &amp; Roadmap</strong><small>Vote and follow progress</small></span>
+          </button>
+          <button class="nav-item" type="button" data-view-target="community">
+            <span class="nav-icon" aria-hidden="true">◎</span>
+            <span><strong>Community</strong><small>People and conversations</small></span>
+          </button>
+          <button class="nav-item" type="button" data-view-target="updates">
+            <span class="nav-icon" aria-hidden="true">◌</span>
+            <span><strong>Updates</strong><small>Releases and incidents</small></span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="language-button" type="button">
+            <span aria-hidden="true">◉</span> English <span aria-hidden="true">⌄</span>
+          </button>
+          <p>Community guidelines</p>
+        </div>
+      </aside>
+
+      <button class="drawer-scrim" type="button" aria-label="Close navigation"></button>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div class="topbar-start">
+            <button class="menu-button" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false">
+              <span></span><span></span><span></span>
+            </button>
+            <button class="mobile-brand" type="button" data-view-target="home">Retell Forum</button>
+          </div>
+          <div class="topbar-actions">
+            <button class="search-jump" type="button" data-search-jump>
+              <span aria-hidden="true">⌕</span><span>Ask or search</span>
+            </button>
+            <button class="system-status" type="button" data-view-target="updates">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Operational</span>
+            </button>
+            <button class="join-button" type="button" data-open-auth><span class="join-full">Join or Sign In</span><span class="join-short">Join</span></button>
+          </div>
+        </header>
+
+        <main id="main-content" tabindex="-1">
+          <section class="view view-home is-active" data-view="home" aria-labelledby="home-title">
+            <div class="voice-hero">
+              <div class="signal-field" aria-hidden="true">
+                <span style="--h: 20%"></span><span style="--h: 48%"></span><span style="--h: 82%"></span>
+                <span style="--h: 38%"></span><span style="--h: 64%"></span><span style="--h: 26%"></span>
+                <span style="--h: 72%"></span><span style="--h: 42%"></span><span style="--h: 90%"></span>
+                <span style="--h: 34%"></span><span style="--h: 56%"></span><span style="--h: 18%"></span>
+              </div>
+              <div class="hero-copy">
+                <p class="context-line"><span class="live-pulse" aria-hidden="true"></span>Retell builders are here</p>
+                <h1 id="home-title">What are you building—or fixing?</h1>
+                <p>Describe the problem in your own words. We’ll find an answer, a solved discussion, or the right people to ask.</p>
+              </div>
+
+              <form class="assist-form" id="assist-form" role="search">
+                <label for="assist-query">Ask or search the Retell community</label>
+                <div class="composer-shell">
+                  <span class="composer-glyph" aria-hidden="true">⌕</span>
+                  <textarea id="assist-query" name="query" rows="2" placeholder="Describe what you’re trying to build or fix…" autocomplete="off"></textarea>
+                  <button type="submit">Find an answer</button>
+                </div>
+                <p class="composer-note">Try “My webhook isn’t firing after a call” or “How do I transfer a live call?”</p>
+              </form>
+
+              <div class="assist-response" id="assist-response" aria-live="polite" hidden>
+                <div class="response-heading">
+                  <span class="ai-orb" aria-hidden="true"></span>
+                  <div><p>Suggested answer</p><h2 id="response-title">Check the webhook event and endpoint logs first</h2></div>
+                  <span class="confidence">High confidence</span>
+                </div>
+                <p id="response-copy">Retell sends post-call events only after the call analysis completes. Confirm that your endpoint accepts POST requests, returns a 2xx response, and is subscribed to the event you expect.</p>
+                <div class="answer-sources">
+                  <a href="https://docs.retellai.com/features/webhook" target="_blank" rel="noreferrer">Webhook documentation</a>
+                  <button type="button" data-view-target="support">3 related discussions</button>
+                  <button class="ask-community" type="button" data-open-compose>Ask the community</button>
+                </div>
+              </div>
+            </div>
+
+            <nav class="quick-routes" aria-label="Common tasks">
+              <button type="button" data-view-target="support"><span>Get unstuck</span><strong>Browse solved questions</strong></button>
+              <button type="button" data-view-target="updates"><span>Something down?</span><strong>Check status first</strong></button>
+              <button type="button" data-view-target="ideas"><span>Shape the product</span><strong>Submit or vote on an idea</strong></button>
+              <button type="button" data-view-target="learn"><span>Learn by example</span><strong>Explore guides and tutorials</strong></button>
+            </nav>
+
+            <div class="home-grid">
+              <section class="discussion-section" aria-labelledby="active-title">
+                <div class="section-heading">
+                  <div><p>Live community signal</p><h2 id="active-title">Active support discussions</h2></div>
+                  <button type="button" data-view-target="support">View all support</button>
+                </div>
+
+                <div class="signal-list">
+                  <article class="signal-row">
+                    <span class="topic-state solved">Solved</span>
+                    <div><h3>Global webhook URL not being used — caching issue?</h3><p>Webhook setup · Staff answered</p></div>
+                    <span class="activity">12 replies<br /><small>18 min ago</small></span>
+                  </article>
+                  <article class="signal-row">
+                    <span class="topic-state unanswered">Unanswered</span>
+                    <div><h3>V3 gateway starts speaking before the browser media path is live</h3><p>Web calls · Agent performance</p></div>
+                    <span class="activity">4 replies<br /><small>46 min ago</small></span>
+                  </article>
+                  <article class="signal-row">
+                    <span class="topic-state staff">Staff answered</span>
+                    <div><h3>How do I handle interruptions mid-sentence?</h3><p>Conversation flow · Best practices</p></div>
+                    <span class="activity">8 replies<br /><small>2 hr ago</small></span>
+                  </article>
+                </div>
+              </section>
+
+              <aside class="onboarding-panel" aria-labelledby="onboarding-title">
+                <div class="progress-ring" aria-hidden="true"><span id="progress-count">1/4</span></div>
+                <div>
+                  <p>New to Retell?</p>
+                  <h2 id="onboarding-title">Get useful answers faster</h2>
+                </div>
+                <div class="checklist" id="onboarding-checklist">
+                  <label><input type="checkbox" checked /> <span>Search once before posting</span></label>
+                  <label><input type="checkbox" /> <span>Read the community guidelines</span></label>
+                  <label><input type="checkbox" /> <span>Choose the topics you follow</span></label>
+                  <label><input type="checkbox" /> <span>Ask your first question</span></label>
+                </div>
+                <button class="quiet-button" type="button" data-dismiss-onboarding>Hide for now</button>
+              </aside>
+            </div>
+          </section>
+
+          <section class="view" data-view="support" aria-labelledby="support-title" hidden>
+            <header class="page-banner support-banner">
+              <div><p>Answers from builders and Retell staff</p><h1 id="support-title">Get Help</h1></div>
+              <button type="button" data-open-compose>Ask the community</button>
+            </header>
+
+            <div class="list-toolbar">
+              <div class="filter-group" aria-label="Filter support topics">
+                <button class="is-active" type="button" data-support-filter="all">All</button>
+                <button type="button" data-support-filter="unanswered">Unanswered</button>
+                <button type="button" data-support-filter="solved">Solved</button>
+                <button type="button" data-support-filter="staff">Staff Answered</button>
+              </div>
+              <label class="sort-control">Sort <select><option>Recent activity</option><option>Most replied</option><option>Newest</option></select></label>
+            </div>
+
+            <div class="guidance-strip">
+              <span aria-hidden="true">i</span>
+              <p><strong>Before you post:</strong> Search once, remove private identifiers, and include what you expected to happen.</p>
+              <button type="button" data-search-jump>Search support</button>
+            </div>
+
+            <div class="topic-list" id="support-topic-list">
+              <article class="topic-row" data-topic-status="solved">
+                <span class="topic-state solved">Solved</span>
+                <div class="topic-copy"><h2>Global webhook URL not being used — caching issue?</h2><p>My global webhook URL is saved correctly, but requests still appear to use the previous endpoint.</p><div><span>Webhook setup</span><span>Staff answered</span></div></div>
+                <div class="topic-metrics"><strong>12</strong><span>replies</span><small>18 min ago</small></div>
+              </article>
+              <article class="topic-row" data-topic-status="unanswered">
+                <span class="topic-state unanswered">Unanswered</span>
+                <div class="topic-copy"><h2>V3 gateway starts speaking before browser media is live</h2><p>The caller hears the greeting from the middle instead of from the first word after migrating to the V3 transport.</p><div><span>Web calls</span><span>Agent performance</span></div></div>
+                <div class="topic-metrics"><strong>4</strong><span>replies</span><small>46 min ago</small></div>
+              </article>
+              <article class="topic-row" data-topic-status="staff">
+                <span class="topic-state staff">Staff Answered</span>
+                <div class="topic-copy"><h2>How do I handle interruptions mid-sentence?</h2><p>Looking for the best approach to keep a voice agent natural when callers interrupt or change direction.</p><div><span>Conversation flow</span><span>Best practices</span></div></div>
+                <div class="topic-metrics"><strong>8</strong><span>replies</span><small>2 hr ago</small></div>
+              </article>
+              <article class="topic-row" data-topic-status="solved">
+                <span class="topic-state solved">Solved</span>
+                <div class="topic-copy"><h2>Accidentally deleted an agent — can it be restored?</h2><p>What information should be shared privately with support to locate and restore a deleted agent?</p><div><span>Workspace</span><span>Account help</span></div></div>
+                <div class="topic-metrics"><strong>10</strong><span>replies</span><small>9 hr ago</small></div>
+              </article>
+              <article class="topic-row incident-row" data-topic-status="incident">
+                <span class="topic-state incident">Incident</span>
+                <div class="topic-copy"><h2>Elevated errors affecting web call creation</h2><p>Retell staff are investigating increased failures. Follow the incident for verified updates.</p><div><span>Web calls</span><span>Live incident</span></div></div>
+                <div class="topic-metrics"><strong>23</strong><span>following</span><small>Updated 6 min ago</small></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" data-view="ideas" aria-labelledby="ideas-title" hidden>
+            <header class="page-banner ideas-banner">
+              <div><p>Propose improvements and follow what ships</p><h1 id="ideas-title">Ideas &amp; Roadmap</h1></div>
+              <button type="button" data-open-compose data-compose-mode="idea">Submit an idea</button>
+            </header>
+            <div class="list-toolbar">
+              <div class="filter-group"><button class="is-active" type="button">Top voted</button><button type="button">Latest</button><button type="button">Recently updated</button></div>
+            </div>
+            <div class="idea-list">
+              <article class="idea-row">
+                <button class="vote-button" type="button" aria-label="Vote for More emotionally expressive realtime voices"><span>▲</span><strong>128</strong><small>votes</small></button>
+                <div><span class="roadmap-status planned">Planned</span><h2>More emotionally expressive realtime voices</h2><p>Improve voice naturalness and emotional range for realtime agents while preserving low latency.</p><small>Updated by Retell product · 3 days ago</small></div>
+              </article>
+              <article class="idea-row">
+                <button class="vote-button" type="button" aria-label="Vote for Dynamic voice switching per call"><span>▲</span><strong>94</strong><small>votes</small></button>
+                <div><span class="roadmap-status review">Under Review</span><h2>Dynamic voice switching per call</h2><p>Choose a voice at runtime using call metadata or a function result.</p><small>Product review in progress · 1 week ago</small></div>
+              </article>
+              <article class="idea-row">
+                <button class="vote-button" type="button" aria-label="Vote for Native integrations for top platforms"><span>▲</span><strong>76</strong><small>votes</small></button>
+                <div><span class="roadmap-status progress">In Progress</span><h2>Native integrations for top platforms</h2><p>First-party connectors for the tools most often used in production voice-agent workflows.</p><small>Targeting staged rollout · 2 weeks ago</small></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" data-view="learn" aria-labelledby="learn-title" hidden>
+            <header class="page-banner learn-banner"><div><p>Build with patterns that work</p><h1 id="learn-title">Learn</h1></div></header>
+            <div class="resource-layout">
+              <article class="featured-resource"><span>Start here</span><h2>Build and test your first voice agent</h2><p>A practical path from first prompt to a production-ready call flow.</p><button type="button">Open the guide</button></article>
+              <div class="resource-index"><h2>Popular guides</h2><button type="button">Custom LLM integration best practices <span>12 min</span></button><button type="button">Designing natural interruption handling <span>8 min</span></button><button type="button">Debugging post-call webhooks <span>6 min</span></button><button type="button">Moving from V2 to V3 web calls <span>10 min</span></button></div>
+            </div>
+          </section>
+
+          <section class="view" data-view="community" aria-labelledby="community-title" hidden>
+            <header class="page-banner community-banner"><div><p>Share what you know and meet other builders</p><h1 id="community-title">Community</h1></div></header>
+            <div class="community-layout"><div><h2>Conversations worth joining</h2><div class="conversation-line"><strong>What are you building with Retell this month?</strong><span>32 replies</span></div><div class="conversation-line"><strong>Share your most useful conversation-flow pattern</strong><span>18 replies</span></div><div class="conversation-line"><strong>Partner office hours: deployment architecture</strong><span>Thursday</span></div></div><aside><h2>Language communities</h2><button type="button">English</button><button type="button">Deutsch</button><button type="button">Español</button><button type="button">Français</button></aside></div>
+          </section>
+
+          <section class="view" data-view="updates" aria-labelledby="updates-title" hidden>
+            <header class="page-banner updates-banner"><div><p>Product releases and service health</p><h1 id="updates-title">Updates</h1></div></header>
+            <div class="status-overview"><div><span class="large-status-dot" aria-hidden="true"></span><div><p>Current status</p><h2>All systems operational</h2><small>Last checked just now</small></div></div><button type="button">View status history</button></div>
+            <div class="update-list"><h2>Recent updates</h2><article><time datetime="2026-09-18">Sep 18</time><div><h3>Improved V3 web-call startup reliability</h3><p>Reduced time-to-first-audio and improved connection recovery.</p></div></article><article><time datetime="2026-09-10">Sep 10</time><div><h3>New webhook delivery logs</h3><p>Inspect attempts, response codes, and retry timing from the dashboard.</p></div></article></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <dialog class="compose-dialog" id="compose-dialog">
+      <form method="dialog" class="dialog-shell" id="compose-form">
+        <header><div><p id="compose-context">Get help from the community</p><h2 id="compose-title">Ask a question</h2></div><button type="button" aria-label="Close composer" data-close-dialog>×</button></header>
+        <label for="post-title">Title</label>
+        <input id="post-title" name="title" type="text" placeholder="Summarize the problem…" autocomplete="off" required />
+        <label for="post-body">What happened?</label>
+        <textarea id="post-body" name="body" rows="7" placeholder="Include what you expected, what happened instead, and what you already tried…" required></textarea>
+        <div class="privacy-warning" id="privacy-warning" role="status" hidden>
+          <span aria-hidden="true">!</span><p><strong>Check private identifiers.</strong> This looks like an organization, agent, call, or phone identifier. Remove it before posting publicly.</p><button type="button" data-redact>Redact identifiers</button>
+        </div>
+        <div class="form-actions"><p>For billing, KYC, or account access, use private support.</p><button type="button" class="secondary-action" data-private-support>Open private support</button><button type="submit" value="publish">Preview post</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="auth-dialog" id="auth-dialog">
+      <form method="dialog" class="auth-shell">
+        <button type="button" class="dialog-close" aria-label="Close sign in" data-close-dialog>×</button>
+        <span class="auth-mark" aria-hidden="true"></span>
+        <h2>Join or sign in with Retell</h2>
+        <p>Use your Retell account to ask questions, vote on ideas, and follow updates.</p>
+        <label for="work-email">Work email</label>
+        <input id="work-email" type="email" name="email" autocomplete="email" placeholder="you@company.com" />
+        <button type="submit" value="continue">Continue</button>
+        <small>You can browse and search without an account.</small>
+      </form>
+    </dialog>
+
+    <div class="prototype-toast" id="prototype-toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>
