@@ -79,3 +79,11 @@
 - Supersedes: none
 - Evidence: User-approved visual constraints implemented in `index.html`, `styles.css`, and `app.js`.
 - Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0004
+
+- Type: implementation
+- Implementation commit: `ce49521204de384c82ec91766bc1eda2a7ddec0f` — refactor(ui): replace generated-site visual patterns
+- Superseded by: none
+- Note: The committed redesign replaces gradient-heavy generic styling with the approved flat editorial system across desktop and mobile views.
+- Privacy waivers: none
