@@ -41,3 +41,27 @@
 - Supersedes: none
 - Evidence: Approved safety behavior implemented in `index.html` and `app.js`.
 - Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0001
+
+- Type: implementation
+- Implementation commit: `566beba776f56145bad4c47af2de06a2dc027df0` — feat(forum): add responsive community redesign prototype
+- Superseded by: none
+- Note: The committed prototype implements the support-first guest journey, simplified navigation, onboarding, and responsive layouts.
+- Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0002
+
+- Type: implementation
+- Implementation commit: `566beba776f56145bad4c47af2de06a2dc027df0` — feat(forum): add responsive community redesign prototype
+- Superseded by: none
+- Note: The committed prototype implements the unified help composer, contextual answer, related discussions, and community escalation.
+- Privacy waivers: none
+
+## Update — 2026-09-23 — DEC-0003
+
+- Type: implementation
+- Implementation commit: `566beba776f56145bad4c47af2de06a2dc027df0` — feat(forum): add responsive community redesign prototype
+- Superseded by: none
+- Note: The committed prototype implements identifier detection, one-click redaction, and private-support routing.
+- Privacy waivers: none
