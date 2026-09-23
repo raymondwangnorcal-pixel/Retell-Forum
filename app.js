@@ -126,8 +126,8 @@ const progressCount = document.querySelector("#progress-count");
 checklist?.addEventListener("change", () => {
   const boxes = [...checklist.querySelectorAll("input")];
   const complete = boxes.filter((box) => box.checked).length;
-  progressCount.textContent = `${complete}/${boxes.length}`;
-  document.querySelector(".progress-ring").style.background = `conic-gradient(var(--signal) ${(complete / boxes.length) * 100}%, #262831 0)`;
+  document.querySelector(".progress-ring").style.setProperty("--progress", `${(complete / boxes.length) * 100}%`);
+  progressCount.textContent = `${complete}/${boxes.length} complete`;
   if (complete === boxes.length) showToast("You’re set up. This space can now show topics you follow.");
 });
 

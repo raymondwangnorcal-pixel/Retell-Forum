@@ -9,7 +9,7 @@
       content="A responsive product prototype for a redesigned Retell AI community forum."
     />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <title>Retell Forum — Community prototype</title>
+    <title>Retell Forum | Community prototype</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
@@ -25,23 +25,18 @@
 
         <nav class="primary-nav" aria-label="Forum sections">
           <button class="nav-item" type="button" data-view-target="support">
-            <span class="nav-icon" aria-hidden="true">?</span>
             <span><strong>Get Help</strong><small>Answers and support</small></span>
           </button>
           <button class="nav-item" type="button" data-view-target="learn">
-            <span class="nav-icon" aria-hidden="true">↗</span>
             <span><strong>Learn</strong><small>Guides and examples</small></span>
           </button>
           <button class="nav-item" type="button" data-view-target="ideas">
-            <span class="nav-icon" aria-hidden="true">◇</span>
             <span><strong>Ideas &amp; Roadmap</strong><small>Vote and follow progress</small></span>
           </button>
           <button class="nav-item" type="button" data-view-target="community">
-            <span class="nav-icon" aria-hidden="true">◎</span>
             <span><strong>Community</strong><small>People and conversations</small></span>
           </button>
           <button class="nav-item" type="button" data-view-target="updates">
-            <span class="nav-icon" aria-hidden="true">◌</span>
             <span><strong>Updates</strong><small>Releases and incidents</small></span>
           </button>
         </nav>
@@ -79,16 +74,10 @@
         <main id="main-content" tabindex="-1">
           <section class="view view-home is-active" data-view="home" aria-labelledby="home-title">
             <div class="voice-hero">
-              <div class="signal-field" aria-hidden="true">
-                <span style="--h: 20%"></span><span style="--h: 48%"></span><span style="--h: 82%"></span>
-                <span style="--h: 38%"></span><span style="--h: 64%"></span><span style="--h: 26%"></span>
-                <span style="--h: 72%"></span><span style="--h: 42%"></span><span style="--h: 90%"></span>
-                <span style="--h: 34%"></span><span style="--h: 56%"></span><span style="--h: 18%"></span>
-              </div>
               <div class="hero-copy">
-                <p class="context-line"><span class="live-pulse" aria-hidden="true"></span>Retell builders are here</p>
-                <h1 id="home-title">What are you building—or fixing?</h1>
-                <p>Describe the problem in your own words. We’ll find an answer, a solved discussion, or the right people to ask.</p>
+                <p class="context-line">Community support</p>
+                <h1 id="home-title">What are you trying to build or fix?</h1>
+                <p>Describe the problem. Search Retell documentation, solved discussions, and answers from other builders in one place.</p>
               </div>
 
               <form class="assist-form" id="assist-form" role="search">
@@ -103,37 +92,29 @@
 
               <div class="assist-response" id="assist-response" aria-live="polite" hidden>
                 <div class="response-heading">
-                  <span class="ai-orb" aria-hidden="true"></span>
                   <div><p>Suggested answer</p><h2 id="response-title">Check the webhook event and endpoint logs first</h2></div>
-                  <span class="confidence">High confidence</span>
+                  <span class="confidence">From Retell documentation</span>
                 </div>
                 <p id="response-copy">Retell sends post-call events only after the call analysis completes. Confirm that your endpoint accepts POST requests, returns a 2xx response, and is subscribed to the event you expect.</p>
                 <div class="answer-sources">
-                  <a href="https://docs.retellai.com/features/webhook" target="_blank" rel="noreferrer">Webhook documentation</a>
+                  <a href="https://docs.retellai.com/features/webhook-overview" target="_blank" rel="noreferrer">Webhook documentation</a>
                   <button type="button" data-view-target="support">3 related discussions</button>
                   <button class="ask-community" type="button" data-open-compose>Ask the community</button>
                 </div>
               </div>
             </div>
 
-            <nav class="quick-routes" aria-label="Common tasks">
-              <button type="button" data-view-target="support"><span>Get unstuck</span><strong>Browse solved questions</strong></button>
-              <button type="button" data-view-target="updates"><span>Something down?</span><strong>Check status first</strong></button>
-              <button type="button" data-view-target="ideas"><span>Shape the product</span><strong>Submit or vote on an idea</strong></button>
-              <button type="button" data-view-target="learn"><span>Learn by example</span><strong>Explore guides and tutorials</strong></button>
-            </nav>
-
             <div class="home-grid">
               <section class="discussion-section" aria-labelledby="active-title">
                 <div class="section-heading">
-                  <div><p>Live community signal</p><h2 id="active-title">Active support discussions</h2></div>
+                  <div><p>Recent support activity</p><h2 id="active-title">Active support discussions</h2></div>
                   <button type="button" data-view-target="support">View all support</button>
                 </div>
 
                 <div class="signal-list">
                   <article class="signal-row">
                     <span class="topic-state solved">Solved</span>
-                    <div><h3>Global webhook URL not being used — caching issue?</h3><p>Webhook setup · Staff answered</p></div>
+                    <div><h3>Global webhook URL not being used: caching issue?</h3><p>Webhook setup · Shah-Fazal replied</p></div>
                     <span class="activity">12 replies<br /><small>18 min ago</small></span>
                   </article>
                   <article class="signal-row">
@@ -150,10 +131,10 @@
               </section>
 
               <aside class="onboarding-panel" aria-labelledby="onboarding-title">
-                <div class="progress-ring" aria-hidden="true"><span id="progress-count">1/4</span></div>
+                <div class="progress-ring" aria-hidden="true" style="--progress: 25%"><span id="progress-count">1/4 complete</span></div>
                 <div>
-                  <p>New to Retell?</p>
-                  <h2 id="onboarding-title">Get useful answers faster</h2>
+                  <p>Start here</p>
+                  <h2 id="onboarding-title">Before your first post</h2>
                 </div>
                 <div class="checklist" id="onboarding-checklist">
                   <label><input type="checkbox" checked /> <span>Search once before posting</span></label>
@@ -191,7 +172,7 @@
             <div class="topic-list" id="support-topic-list">
               <article class="topic-row" data-topic-status="solved">
                 <span class="topic-state solved">Solved</span>
-                <div class="topic-copy"><h2>Global webhook URL not being used — caching issue?</h2><p>My global webhook URL is saved correctly, but requests still appear to use the previous endpoint.</p><div><span>Webhook setup</span><span>Staff answered</span></div></div>
+                <div class="topic-copy"><h2>Global webhook URL not being used: caching issue?</h2><p>My global webhook URL is saved correctly, but requests still appear to use the previous endpoint.</p><div><span>Webhook setup</span><span>Shah-Fazal replied</span></div></div>
                 <div class="topic-metrics"><strong>12</strong><span>replies</span><small>18 min ago</small></div>
               </article>
               <article class="topic-row" data-topic-status="unanswered">
@@ -206,12 +187,12 @@
               </article>
               <article class="topic-row" data-topic-status="solved">
                 <span class="topic-state solved">Solved</span>
-                <div class="topic-copy"><h2>Accidentally deleted an agent — can it be restored?</h2><p>What information should be shared privately with support to locate and restore a deleted agent?</p><div><span>Workspace</span><span>Account help</span></div></div>
+                <div class="topic-copy"><h2>Accidentally deleted an agent: can it be restored?</h2><p>What information should be shared privately with support to locate and restore a deleted agent?</p><div><span>Workspace</span><span>Account help</span></div></div>
                 <div class="topic-metrics"><strong>10</strong><span>replies</span><small>9 hr ago</small></div>
               </article>
               <article class="topic-row incident-row" data-topic-status="incident">
                 <span class="topic-state incident">Incident</span>
-                <div class="topic-copy"><h2>Elevated errors affecting web call creation</h2><p>Retell staff are investigating increased failures. Follow the incident for verified updates.</p><div><span>Web calls</span><span>Live incident</span></div></div>
+                <div class="topic-copy"><h2>Increased errors affecting web call creation</h2><p>Retell staff are investigating increased failures. Follow the incident for verified updates.</p><div><span>Web calls</span><span>Live incident</span></div></div>
                 <div class="topic-metrics"><strong>23</strong><span>following</span><small>Updated 6 min ago</small></div>
               </article>
             </div>
@@ -228,7 +209,7 @@
             <div class="idea-list">
               <article class="idea-row">
                 <button class="vote-button" type="button" aria-label="Vote for More emotionally expressive realtime voices"><span>▲</span><strong>128</strong><small>votes</small></button>
-                <div><span class="roadmap-status planned">Planned</span><h2>More emotionally expressive realtime voices</h2><p>Improve voice naturalness and emotional range for realtime agents while preserving low latency.</p><small>Updated by Retell product · 3 days ago</small></div>
+                <div><span class="roadmap-status planned">Planned</span><h2>More emotionally expressive realtime voices</h2><p>Improve voice naturalness and emotional range for realtime agents while preserving low latency.</p><small>Proposed by alexandmax010 · Updated 3 days ago</small></div>
               </article>
               <article class="idea-row">
                 <button class="vote-button" type="button" aria-label="Vote for Dynamic voice switching per call"><span>▲</span><strong>94</strong><small>votes</small></button>
@@ -284,8 +265,8 @@
         <h2>Join or sign in with Retell</h2>
         <p>Use your Retell account to ask questions, vote on ideas, and follow updates.</p>
         <label for="work-email">Work email</label>
-        <input id="work-email" type="email" name="email" autocomplete="email" placeholder="you@company.com" />
-        <button type="submit" value="continue">Continue</button>
+        <input id="work-email" type="email" name="email" autocomplete="email" spellcheck="false" placeholder="you@company.com" />
+        <button type="submit" value="continue">Continue with email</button>
         <small>You can browse and search without an account.</small>
       </form>
     </dialog>
